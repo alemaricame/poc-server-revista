@@ -2,11 +2,10 @@
   "name": "poc-server",
   "version": "1.0.0",
   "description": "Servidor de implementación para el admin y la aplicacion de revista oxxo",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
-
   },
   "author": "",
   "license": "ISC",
