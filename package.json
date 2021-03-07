@@ -23,5 +23,14 @@
   },
   "engines": {
     "node": "14.x"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alemaricame/poc-server-revista.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/alemaricame/poc-server-revista/issues"
+  },
+  "homepage": "https://github.com/alemaricame/poc-server-revista#readme"
 }
