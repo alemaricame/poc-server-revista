@@ -32,10 +32,6 @@ db.mongoose
     process.exit();
   });
 
-app.get("/", function (req, res) {
-  res.send("Hello World!");
-});
-
 app.use(router);
 
 
