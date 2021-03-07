@@ -53,3 +53,11 @@ server.on('clientError', (err, socket) => {
   console.error(err);
   socket.end('HTTP/1.1 400 Bad Request\r\n\r\n');
 });
+
+http.listen((3000), function(){
+  console.log('listening on *:5000');
+});
+
+http.listen(3000, function(){
+  console.log('listening on *:5000');
+});
