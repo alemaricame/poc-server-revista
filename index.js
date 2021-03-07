@@ -35,9 +35,6 @@ db.mongoose
 app.use(router);
 
 
-const requestListener = function (req, res) {};
-const server = http.createServer(requestListener);
-
 var cors = require('cors')
 app.use(cors())
 
