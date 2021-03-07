@@ -47,3 +47,9 @@ app.set('port', 3000);
 app.listen(3000, function () {
   console.log("Node server running on http://localhost:3000");
 });
+
+
+server.on('clientError', (err, socket) => {
+  console.error(err);
+  socket.end('HTTP/1.1 400 Bad Request\r\n\r\n');
+});
