@@ -52,12 +52,12 @@ app.listen(3000, function () {
 });
 
 
-server.listen(3000, 'https://poc-server-revista.herokuapp.com', () => {
-  console.log(`Server is running on http://${host}:${port}`);
-});
+// server.listen(3000, 'https://poc-server-revista.herokuapp.com', () => {
+//   console.log(`Server is running on http://${host}:${port}`);
+// });
 
-server.on('clientError', (err, socket) => {
-  console.error(err);
-  socket.end('HTTP/1.1 400 Bad Request\r\n\r\n');
-});
+// server.on('clientError', (err, socket) => {
+//   console.error(err);
+//   socket.end('HTTP/1.1 400 Bad Request\r\n\r\n');
+// });
 
