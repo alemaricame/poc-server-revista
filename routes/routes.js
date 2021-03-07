@@ -9,7 +9,6 @@ module.exports = (app) => {
 
     router.get('/users', users.users);
 
-    router.get('/', users.users);
 
     app.use("/api", router);
 }
