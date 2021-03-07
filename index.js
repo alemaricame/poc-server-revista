@@ -18,6 +18,7 @@ var router = express.Router();
 require("./routes/routes")(app);
 
 const db = require("./models");
+const http = require("http");
 
 db.mongoose
   .connect(db.url, {
@@ -38,6 +39,8 @@ app.get("/", function (req, res) {
 app.use(router);
 
 
+const requestListener = function (req, res) {};
+const server = http.createServer(requestListener);
 
 var cors = require('cors')
 app.use(cors())
@@ -49,15 +52,12 @@ app.listen(3000, function () {
 });
 
 
+server.listen(3000, 'https://poc-server-revista.herokuapp.com', () => {
+  console.log(`Server is running on http://${host}:${port}`);
+});
+
 server.on('clientError', (err, socket) => {
   console.error(err);
   socket.end('HTTP/1.1 400 Bad Request\r\n\r\n');
 });
 
-http.listen((3000), function(){
-  console.log('listening on *:5000');
-});
-
-http.listen(3000, function(){
-  console.log('listening on *:5000');
-});
