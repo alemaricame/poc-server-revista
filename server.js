@@ -18,9 +18,6 @@ app.use((req, res, next) => {
 	next();
 });
 
-var cors = require('cors')
-app.use(cors())
-
 mongoose.connect('mongodb+srv://admin:admin@cluster0.xp3qr.mongodb.net/poc?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology:true
