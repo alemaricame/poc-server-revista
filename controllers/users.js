@@ -50,6 +50,7 @@ exports.register_users = (req, res) => {
 
 exports.login = (req, res) => {
     const data_user = req.body;
+    console.log('data user', req.body)
     users.findOne({ numero_personal: data_user['num_empleado']}).then(data => {
         console.log('data', data)
         if (data) {
