@@ -28,7 +28,7 @@ mongoose.connection.on('connected', () => {
     console.log('mongose is connected')
 })
 
-app.use(morgan('tiny'));
+// app.use(morgan('tiny'));
 //app.use('/api', routes);
 
 app.listen( process.env.PORT ||3000, () => {
