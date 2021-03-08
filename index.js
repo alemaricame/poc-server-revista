@@ -32,8 +32,11 @@ db.mongoose
     process.exit();
   });
 
-app.use(router);
+//app.use(router);
 
+app.get('/heroku', (req, res) => {
+  res.send('Prueba')
+})
 
 var cors = require('cors')
 app.use(cors())

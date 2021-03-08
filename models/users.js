@@ -10,6 +10,10 @@ module.exports = mongoose => {
             tel: { type: String, required: true },
             distrito: { type: String, required: true },
             asesor: { type: String, required: true },
+            photo: { type: String, required: true },
+            password: { type: String, required: true },
+            cumple: { type: String, required: true },
+
         }
     )
 
