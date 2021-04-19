@@ -39,8 +39,8 @@ exports.el_mejor_equipo_todos = (req, res) => {
         console.log("err", err);
         res.status(500).send({
           message:
-            "Error al crear." + err.message ||
-            "Error al crear.",
+            "Error al consultar." + err.message ||
+            "Error al consultar.",
         });
       });
 }
