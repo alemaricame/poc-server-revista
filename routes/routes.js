@@ -2,6 +2,7 @@ module.exports = (app) => {
     var router = require("express").Router();
 
     const users = require("../controllers/users.js");
+    const manteles = require("../controllers/de-manteles-largos");
 
     router.get('/example', (req, res) => {
         res.status(200).send('Enviado')
@@ -22,7 +23,8 @@ module.exports = (app) => {
 
     
      router.get('/users', users.users);
-     router.post('/el-mejor-equipo', users.users);
+     router.post('/el-mejor-equipo', manteles.el_mejor_equipo);
+     router.get('/el-mejor-equipo-todos', manteles.el_mejor_equipo_todos);
 
 
 
