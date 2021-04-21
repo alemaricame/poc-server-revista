@@ -3,6 +3,7 @@ module.exports = (app) => {
 
     const users = require("../controllers/users.js");
     const manteles = require("../controllers/de-manteles-largos");
+    const tuHistoria = require("../controllers/tu_historia");
 
     router.get('/example', (req, res) => {
         res.status(200).send('Enviado')
@@ -26,6 +27,13 @@ module.exports = (app) => {
      router.post('/el-mejor-equipo', manteles.el_mejor_equipo);
      router.get('/el-mejor-equipo-todos', manteles.el_mejor_equipo_todos);
 
+
+     router.post('/prodeli', tuHistoria.prodeli);
+     router.get('/prodeli-todos', tuHistoria.prodeli_todos);
+
+
+     router.post('/excelencia', manteles.excelencia);
+     router.get('/excelencia-todos', manteles.excelencia_todos);
 
 
 
