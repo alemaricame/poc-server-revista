@@ -2,12 +2,19 @@ const db = require("../models");
 const users = db.connect;
 
 exports.users = (req, res) => {
+    console.log('users all')
     users.find().then(data => {
-        if (data) {
+        if (data.length > 0) {
             res.status(200).send({ status: true, data: data });
         } else {
             res.status(500).send({ status: false, message: 'Error al cargar los datos' })
         }
+    })
+}
+
+exports.edit_user = (req, res) => {
+    users.updateOne({numero_personal: req.body.num_empleado}, {phone: req.body.phone, date: req.body.date}).then(response => {
+        console.log(response)
     })
 }
 
@@ -50,10 +57,11 @@ exports.register_users = (req, res) => {
 
 exports.login = (req, res) => {
     const data_user = req.body;
-    users.findOne({ numero_personal: data_user['num_empleado']}).then(data => {
+    console.log('data user', data_user.num_empleado)
+    users.findOne({ no_personal: data_user.num_empleado }).then(data => {
         console.log('data', data)
         if (data) {
-            if(data['password'] === data_user['password']){
+            if(data.password === parseInt(data_user.password)){
                 res.status(200).send({ status: true, data: data });
             }else{
                 res.status(500).send({ status: false, message: 'La contraseña es incorrecta' })
