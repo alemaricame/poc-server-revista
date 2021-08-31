@@ -18,8 +18,13 @@ module.exports = (app) => {
     router.get('/ingresar', users.ingresar);
     router.get('/', users.users);
 
-    router.get('/salud/informacion-que-cura', salud.getAllSalud);
 
+    /**
+     * 
+     */
+    router.get('/salud/informacion-que-cura', salud.getAllSalud);
+    router.get('/salud/para-que-te-animes', salud.getAnimes);
+    router.get('/salud/convenios', salud.getConvenios);
 
     /**
      * Services admin
