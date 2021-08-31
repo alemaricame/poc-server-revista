@@ -60,12 +60,20 @@ const corsOptions = {
 
 // Enable preflight requests for all routes
 app.options('*', cors(corsOptions));
-app.set('port', 5050);
+// app.set('port', 5050);
 
-app.listen(5050, function () {
-  console.log("Node server running on http://localhost:5050");
+// app.listen(5050, function () {
+//   console.log("Node server running on http://localhost:5050");
+// });
+
+var cors_proxy = require('cors-anywhere');
+cors_proxy.createServer({
+    originWhitelist: [], // Allow all origins
+    requireHeader: ['origin', 'x-requested-with'],
+    removeHeaders: ['cookie', 'cookie2']
+}).listen(5050, 'localhost', function() {
+    console.log('Running CORS Anywhere on ' + 'localhost' + ':' + 5050);
 });
-
 
 // server.listen(3000, 'https://poc-server-revista.herokuapp.com', () => {
 //   console.log(`Server is running on http://${host}:${port}`);
