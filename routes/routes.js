@@ -1,5 +1,26 @@
 module.exports = (app) => {
     var router = require("express").Router();
+    const cors = require('cors');
+    const allowedOrigins = [
+    'capacitor://localhost',
+    'ionic://localhost',
+    'http://localhost',
+    'http://localhost:8080',
+    'http://localhost:8100'
+    ];
+
+    const corsOptions = {
+        origin: (origin, callback) => {
+          if (allowedOrigins.includes(origin) || !origin) {
+            callback(null, true);
+          } else {
+            callback(new Error('Origin not allowed by CORS'));
+          }
+        }
+    }
+
+    router.options('*', cors(corsOptions));
+    
 
     const users = require("../controllers/users.js");
     const manteles = require("../controllers/de-manteles-largos");
@@ -13,9 +34,9 @@ module.exports = (app) => {
 
     router.post('/register-users', users.register_users);
     router.post('/edit-users', users.edit_user);
-    router.post('/login', users.login);
+    router.post('/login',  cors(corsOptions), users.login);
 
-    router.get('/ingresar', users.ingresar);
+    router.get('/ingresar',  cors(corsOptions), users.ingresar);
     router.get('/', users.users);
 
 
