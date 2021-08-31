@@ -4,6 +4,7 @@ module.exports = (app) => {
     const users = require("../controllers/users.js");
     const manteles = require("../controllers/de-manteles-largos");
     const tuHistoria = require("../controllers/tu_historia");
+    const salud = require("../controllers/salud");
 
     router.get('/example', (req, res) => {
         res.status(200).send('Enviado')
@@ -11,11 +12,13 @@ module.exports = (app) => {
 
 
     router.post('/register-users', users.register_users);
+    router.post('/edit-users', users.edit_user);
     router.post('/login', users.login);
 
     router.get('/ingresar', users.ingresar);
     router.get('/', users.users);
 
+    router.get('/salud/informacion-que-cura', salud.getAllSalud);
 
 
     /**

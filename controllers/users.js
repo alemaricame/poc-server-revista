@@ -13,8 +13,22 @@ exports.users = (req, res) => {
 }
 
 exports.edit_user = (req, res) => {
-    users.updateOne({numero_personal: req.body.num_empleado}, {phone: req.body.phone, date: req.body.date}).then(response => {
+    console.log('req edit', req.body)
+    users.updateOne({no_personal: req.body.no_personal}, {phone: req.body.phone, date: req.body.date}).then(response => {
         console.log(response)
+        if(response.n === 1){
+            users.findOne({no_personal: req.body.no_personal}).then(response => {
+                res.status(200).send({
+                    success: true,
+                    data: response
+                });
+            })
+        }else{
+            res.status(400).send({
+                success: false,
+                message: 'Error al editar los datos'
+            });
+        }
     })
 }
 
