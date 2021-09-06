@@ -65,10 +65,10 @@ const corsOptions = {
 // Enable preflight requests for all routes
 app.options('*', cors(corsOptions));
 // app.set('port', 5050);
-const port = process.env.PORT || 5050;
+const port = process.env.PORT || 3000;
 
 app.listen(port, function () {
-  console.log("Node server running on http://localhost:5050");
+  console.log("Node server running on http://localhost:3000");
 });
 
 // var cors_proxy = require('cors-anywhere');
